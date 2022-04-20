@@ -2,7 +2,29 @@
 ////// CALCULATOR //////
 ////////////////////////
 
-// CODE HERE
+function add(num1, num2){
+    return num1 + num2
+}
+
+const subtract = (num1, num2) => num1 - num2
+
+const divide = function(num1, num2){
+    return num1 / num2
+}
+
+const multiply = (num1, num2) => num1 * num2
+
+const calculator = (num1, num2, cb) => {
+    if(+num1 && +num2){
+        num1 = +num1
+        num2 = +num2
+        return cb(num1, num2)
+    } else {
+        return 'please only submit number'
+    }
+}
+
+// console.log(calculator(2, 5, divide))
 
 
 ///////////////////////
@@ -138,8 +160,12 @@ const copyArrToSnakeCase = arr => {
 
 const colors = ['red', 'blue', 'yellow', 'green', 'orange']
 
-const mappedColors // = colors.map()
-
+const mappedColors = colors.map(function(element, index){
+   return 'pink'
+})
+ 
+// console.log(colors)
+// console.log(mappedColors)
 /*
     Edit the formalGreeting function and use the built in .map method 
     to map over the names parameter and return a new array with "Hello, " 
@@ -166,7 +192,11 @@ const formalGreeting = names => {
 
 const places = ['Binghampton', 'Albany', 'New York', 'Ithaca', 'Auburn', 'Rochester', 'Buffalo']
 
-const placesThatStartWithA // = places.filter()
+const placesThatStartWithA  = places.filter(function(place, i){
+  return place.startsWith('A')
+})
+
+// console.log(placesThatStartWithA)
 
 
 /*
@@ -243,5 +273,10 @@ const expenses = [
         amount: 300
     }
 ]
+const reduceFn = (acc, curr) => {
+    console.log(curr.amount)
+    return acc - curr.amount
+}
+const remaining = expenses.reduce(reduceFn, budget)
 
-const remaining // = expenses.reduce(//callback, //initial value)
+console.log(remaining)
